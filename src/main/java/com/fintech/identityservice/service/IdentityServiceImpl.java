@@ -56,7 +56,7 @@ public class IdentityServiceImpl implements IdentityService{
         }
 
         String bvnResponseData = "{" +
-                "\"results\": { " +
+                "\"result\": { " +
                 "       \"requestReference\": \"E5fAXe757848871_22\"," +
                 "        \"bvnNumber\": \"" + bvn + "\"," +
                 "        \"enrolmentBranch\": \"44\"," +
@@ -66,9 +66,9 @@ public class IdentityServiceImpl implements IdentityService{
                 "        \"verificationStatus\": \"VERIFIED\"," +
                 "        \"serviceType\": \"BVN Verification without Image\"," +
                 "        \"personalInfo\": {" +
-                "            \"firstname\": \"" + firstName + "\"," +
+                "            \"firstName\": \"" + firstName + "\"," +
                 "            \"middleName\": \"" + middleName + "\"," +
-                "            \"lastname\": \"" + lastName + "\"," +
+                "            \"lastName\": \"" + lastName + "\"," +
                 "            \"fullName\": \"" + firstName + " " + lastName + "\"," +
                 "            \"email\": \"" + email + "\"," +
                 "            \"gender\": \"Male\"," +
@@ -90,6 +90,7 @@ public class IdentityServiceImpl implements IdentityService{
                 "    \"message\": \"BVN Verification Completed Successfully\"" +
                 "}";
 
+        log.info("Bvn Response Data {}", gson.toJson(bvnResponseData));
         return gson.fromJson(bvnResponseData, BvnResponse.class);
     }
 
@@ -130,7 +131,7 @@ public class IdentityServiceImpl implements IdentityService{
         }
 
         String ninResponseData = "{" +
-                "\"results\": {" +
+                "\"result\": {" +
                 "    \"requestReference\": \"E5fAXe757848871_22\"," +
                 "    \"ninNumber\": \""+ nin + "\"," +
                 "    \"documentNo\": \"D123456789\"," +
@@ -150,7 +151,7 @@ public class IdentityServiceImpl implements IdentityService{
                 "        \"height\": \"5.8\"," +
                 "        \"maritalStatus\": \"single\"," +
                 "        \"religion\": \"Christianity\"," +
-                "        \"signature\": \"signature-image-url\"," +
+                "        \"signature\": \"signature-image-url\"" +
                 "    }," +
                 "    \"nextOfKin\": {" +
                 "        \"firstname\": \"Kola\"," +
@@ -169,14 +170,15 @@ public class IdentityServiceImpl implements IdentityService{
                 "    \"indigeneInfo\": {" +
                 "        \"lgaOfOrigin\": \"Awka South\"," +
                 "        \"placeOfOrigin\": \"Awka\"," +
-                "        \"stateOfOrigin\": \"Anambra State\"," +
-                "    }," +
+                "        \"stateOfOrigin\": \"Anambra State\"" +
+                "    }" +
                 "}," +
                 "\"statusCode\": \"200\"," +
                 "\"message\": \"NIN Verification Completed Successfully\"," +
                 "\"status\": \"Success\"" +
                 "}";
 
+        log.info("NINresponse :: {}", gson.toJson(ninResponseData));
         return gson.fromJson(ninResponseData, NinResponse.class);
     }
 }

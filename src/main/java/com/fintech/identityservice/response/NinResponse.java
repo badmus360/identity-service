@@ -39,7 +39,7 @@ public class NinResponse {
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class PersonalInfo {
         private String title;
-        private String firstname;
+        private String firstName;
         private String middleName;
         private String lastName;
         private String fullName;
